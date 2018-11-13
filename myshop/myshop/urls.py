@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+from django.urls import include, path  # For django versions from 2.0 and up
 
 from core.views import Home
 
@@ -22,3 +24,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Home.as_view())
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
