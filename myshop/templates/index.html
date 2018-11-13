@@ -10,4 +10,35 @@
         <li><a href="#">{{ item }}</a></li>
      {% endfor %}
   </ul>
+  <div class="container-fluid">
+    <h3>Sign in</h3>
+
+    <form class="login" action="/echo" method="post">
+            <label for="login">Username</label>
+            <input type="text" id="login" name="login">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+
+            <input type="submit" value="Sign in">
+    </form>
+  </div>
+  <div class="container-fluid">
+    <br>
+      <p>Or alternatively:</p>
+    <br>
+        <h3>Create account</h3>
+
+        <form action="/echo" method="post">
+            <label for="login-field">Your username (email):<br></label>
+            <input type="text" name="login" id="login-field"><br>
+            <label for="password-field">Password:<br></label>
+            <input type="password" name="password" id="password-field"><br>
+            <label>Additional notes:<br></label>
+            <textarea rows="3"></textarea><br>
+            <input type="checkbox" name="subscribe" id="subscribe-me" checked> Get our news by e-mail<br>
+            <input type="submit" value="Create account">
+        </form>
+  </div>>
+
 {% endblock %}
