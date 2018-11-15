@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>WELCOME TO MY SHOP!</h1>
+<!--  <h1>WELCOME TO MY SHOP!</h1>
   <p>Now it is {% now "jS F Y H:i" %}</p>
   <p>Hello {{ user }}!<p>
 
@@ -40,5 +40,26 @@
             <input type="submit" value="Create account">
         </form>
   </div>>
+  -->
+<div class="row">
+    {% for product in products %}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="/media/{{ product.image }}" style="max-width: 200px;">
+              <div class="caption">
+                <h3>{{ product.name }}</h3>
+                <p>
+                    {{ product.description }}
+                    <br>
+                    {{ product.type }}
+                    <br>
+                    <b>${{ product.price }}</b>
+                </p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
