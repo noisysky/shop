@@ -1,13 +1,14 @@
 from django.contrib import admin
-from core.models import Products
+from core.models import Products, TelescopeType
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'price', 'count', 'type')#, 'get_total')
-    search_fields = ('name', 'trade_mark__name')
+    list_display = ('id', 'name', 'price', 'count', 'telescope_type')#, 'get_total')
+    search_fields = ('name', 'telescope_type__name')
 
 #    def get_total(self, obj):
 #        return obj.price * obj.count
 #    get_total.short_description = 'Total'
 
 admin.site.register(Products, ProductAdmin)
+admin.site.register(TelescopeType)

@@ -1,12 +1,18 @@
 from django.db import models
 
+class TelescopeType(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
 # Create your models here.
 class Products(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     description = models.TextField()
     count = models.PositiveIntegerField()
-    type = models.CharField(max_length=255)
+    telescope_type = models.ForeignKey(TelescopeType, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='products')  # install pillow for use ImageField (pip install pillow)
 
     class Meta:

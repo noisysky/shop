@@ -19,11 +19,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path  # For django versions from 2.0 and up
 
-from core.views import Home
+from core.views import Home, TelescopeView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', Home.as_view())
+    url(r'^$', Home.as_view()),
+    path('telescope_type/<int:telescope_type_id>/', TelescopeView.as_view(), name='telescope_type')
 ]
 
 if settings.DEBUG:
