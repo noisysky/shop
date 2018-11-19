@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Products, TelescopeType
+from core.models import Products, TelescopeType#, Tag
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Products, ProductAdmin)
 admin.site.register(TelescopeType)
+#admin.site.register(Tag)

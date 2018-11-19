@@ -19,12 +19,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path  # For django versions from 2.0 and up
 
-from core.views import Home, TelescopeView
+from core.views import Home, TelescopeView, Register
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', Home.as_view()),
-    path('telescope_type/<int:telescope_type_id>/', TelescopeView.as_view(), name='telescope_type')
+    url(r'^$', Home.as_view(), name="home"),
+    path('telescope_type/<int:telescope_type_id>/', TelescopeView.as_view(), name='telescope_type'),
+    path('registration/', Register.as_view(), name='registration'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:
@@ -34,3 +36,4 @@ if settings.DEBUG:
     ] + urlpatterns
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

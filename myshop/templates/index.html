@@ -55,6 +55,12 @@
                     <br>
                     <b>${{ product.price }}</b>
                 </p>
+                <p>{{product.get_status_display}}</p>
+                <p>
+                {#  {% for tag in product.tags.all %}  #}
+                {#      <!-- <a href="#">#{{tag.name}}</a> -->  #}
+                {#  {% endfor %}  #}
+                </p>
                 <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
               </div>
             </div>
